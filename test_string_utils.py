@@ -54,3 +54,14 @@ def test_trim_negative(input_str, expected):
 ])
 def test_contains_positive(input_str, expected):
     assert string_utils.contains(input_str, expected)
+
+
+@pytest.mark.negative
+@pytest.mark.parametrize("input_str, expected", [
+    ("Victory", "S"),
+    ("Google", "5"),
+    ("123456", "EEE"),
+])
+def test_contains_negative(input_str, expected):
+    assert string_utils.contains(input_str, expected) == False
+
