@@ -7,8 +7,8 @@ string_utils = StringUtils()
 
 @pytest.mark.positive
 @pytest.mark.parametrize("input_str, expected", [
-    ("skypro", "Skypro"),
-    ("hello world", "Hello world"),
+    ("google", "Google"),
+    ("test word", "Test word"),
     ("python", "Python"),
 ])
 def test_capitalize_positive(input_str, expected):
@@ -20,6 +20,7 @@ def test_capitalize_positive(input_str, expected):
     ("123abc", "123abc"),
     ("", ""),
     ("   ", "   "),
+    ("@blak", "@blak"),
 ])
 def test_capitalize_negative(input_str, expected):
     assert string_utils.capitalize(input_str) == expected
@@ -43,3 +44,13 @@ def test_trim_positive(input_str, expected):
 ])
 def test_trim_negative(input_str, expected):
     assert string_utils.trim(input_str) == expected
+
+
+@pytest.mark.positive
+@pytest.mark.parametrize("input_str, expected", [
+    ("Victory", "y"),
+    ("Google", "e"),
+    ("123456", "5"),
+])
+def test_contains_positive(input_str, expected):
+    assert string_utils.contains(input_str, expected)
