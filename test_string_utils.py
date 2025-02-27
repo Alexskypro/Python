@@ -23,3 +23,22 @@ def test_capitalize_positive(input_str, expected):
 ])
 def test_capitalize_negative(input_str, expected):
     assert string_utils.capitalize(input_str) == expected
+
+
+@pytest.mark.positive
+@pytest.mark.parametrize("input_str, expected", [
+    ("    test1", "test1"),
+    (" 123456", "123456"),
+    ("              test3", "test3"),
+])
+def test_trim_positive(input_str, expected):
+    assert string_utils.trim(input_str) == expected
+
+@pytest.mark.negative
+@pytest.mark.parametrize("input_str, expected", [
+    ("t e s t 1", "t e s t 1"),
+    ("123456  ", "123456  "),
+    ("test", "test"),
+])
+def test_trim_negative(input_str, expected):
+    assert string_utils.trim(input_str) == expected
