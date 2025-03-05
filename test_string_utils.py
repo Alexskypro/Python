@@ -1,0 +1,89 @@
+import pytest
+from string_utils import StringUtils
+
+
+string_utils = StringUtils()
+
+
+@pytest.mark.positive
+@pytest.mark.parametrize("input_str, expected", [
+    ("google", "Google"),
+    ("test word", "Test word"),
+    ("python", "Python"),
+])
+def test_capitalize_positive(input_str, expected):
+    assert string_utils.capitalize(input_str) == expected
+
+
+@pytest.mark.negative
+@pytest.mark.parametrize("input_str, expected", [
+    ("123abc", "123abc"),
+    ("", ""),
+    ("   ", "   "),
+    ("@blak", "@blak"),
+])
+def test_capitalize_negative(input_str, expected):
+    assert string_utils.capitalize(input_str) == expected
+
+
+@pytest.mark.positive
+@pytest.mark.parametrize("input_str, expected", [
+    ("    test1", "test1"),
+    (" 123456", "123456"),
+    ("              test3", "test3"),
+])
+def test_trim_positive(input_str, expected):
+    assert string_utils.trim(input_str) == expected
+
+
+@pytest.mark.negative
+@pytest.mark.parametrize("input_str, expected", [
+    ("t e s t 1", "t e s t 1"),
+    ("123456  ", "123456  "),
+    ("test", "test"),
+])
+def test_trim_negative(input_str, expected):
+    assert string_utils.trim(input_str) == expected
+
+
+@pytest.mark.positive
+@pytest.mark.parametrize("input_str, expected", [
+    ("Victory", "y"),
+    ("Google", "e"),
+    ("123456", "5"),
+])
+def test_contains_positive(input_str, expected):
+    assert string_utils.contains(input_str, expected)
+
+
+@pytest.mark.negative
+@pytest.mark.parametrize("input_str, expected", [
+    ("Victory", "S"),
+    ("Google", "5"),
+    ("123456", "EEE"),
+])
+def test_contains_negative(input_str, expected):
+    assert not string_utils.contains(input_str, expected)
+
+
+@pytest.mark.positive
+@pytest.mark.parametrize("input_str, symbol, expected", [
+    ("google", "o", "ggle"),
+    ("Supersonic", "s", "Superonic"),
+    ("python", "hon", "pyt"),
+    ("test1234", "23", "test14"),
+    ("inotlikeprogramming$", "$", "inotlikeprogramming")
+])
+def test_delete_symbol_positive(input_str, symbol, expected):
+    assert string_utils.delete_symbol(input_str, symbol) == expected
+
+
+@pytest.mark.negative
+@pytest.mark.parametrize("input_str, symbol, expected", [
+    ("google", "s", "google"),
+    ("supersonic", "S", "supersonic"),
+    ("python", "2", "python"),
+    ("skypro", " ", "skypro")
+])
+def test_delete_symbol_negative(input_str, symbol, expected):
+    assert string_utils.delete_symbol(input_str, symbol) == expected
