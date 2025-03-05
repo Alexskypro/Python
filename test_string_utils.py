@@ -63,5 +63,4 @@ def test_contains_positive(input_str, expected):
     ("123456", "EEE"),
 ])
 def test_contains_negative(input_str, expected):
-    assert string_utils.contains(input_str, expected) == False
-
+    assert not string_utils.contains(input_str, expected)
