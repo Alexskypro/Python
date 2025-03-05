@@ -71,7 +71,8 @@ def test_contains_negative(input_str, expected):
     ("google", "o", "ggle"),
     ("Supersonic", "s", "Superonic"),
     ("python", "hon", "pyt"),
-    ("test1234", "23", "test14")
+    ("test1234", "23", "test14"),
+    ("inotlikeprogramming$", "$", "inotlikeprogramming")
 ])
 def test_delete_symbol_positive(input_str, symbol, expected):
     assert string_utils.delete_symbol(input_str, symbol) == expected
