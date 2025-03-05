@@ -71,6 +71,7 @@ def test_contains_negative(input_str, expected):
     ("google", "o", "ggle"),
     ("Supersonic", "s", "Superonic"),
     ("python", "hon", "pyt"),
+    ("test1234", "23", "test14")
 ])
 def test_delete_symbol_positive(input_str, symbol, expected):
     assert string_utils.delete_symbol(input_str, symbol) == expected
@@ -80,7 +81,7 @@ def test_delete_symbol_positive(input_str, symbol, expected):
 @pytest.mark.parametrize("input_str, symbol, expected", [
     ("google", "s", "google"),
     ("supersonic", "S", "supersonic"),
-    ("python", "a", "python"),
+    ("python", "2", "python"),
     ("skypro", " ", "skypro")
 ])
 def test_delete_symbol_negative(input_str, symbol, expected):
