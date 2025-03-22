@@ -1,4 +1,3 @@
-import keyboard
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -11,18 +10,15 @@ driver.get("http://uitestingplayground.com/dynamicid")
 
 sleep(2)
 
-greenbutton = driver.find_element(By.CLASS_NAME, "btn-primary")
-greenbutton.click()
+button = driver.find_element(By.CLASS_NAME, "btn-primary")
+button.click()
 sleep(2)
-keyboard.send("Enter")
+button = driver.find_element(By.CLASS_NAME, "btn-primary")
+button.click()
 sleep(2)
-greenbutton = driver.find_element(By.CLASS_NAME, "btn-primary")
-greenbutton.click()
+button = driver.find_element(By.CLASS_NAME, "btn-primary")
+button.click()
 sleep(2)
-keyboard.send("Enter")
-sleep(2)
-greenbutton = driver.find_element(By.CLASS_NAME, "btn-primary")
-greenbutton.click()
-sleep(2)
-keyboard.send("Enter")
+button = driver.find_element(By.CLASS_NAME, "btn-primary")
+button.click()
 sleep(2)
