@@ -24,8 +24,9 @@ driver.find_element(By.NAME, 'company').send_keys("SkyPro")
 driver.find_element(By.CSS_SELECTOR, "button[type='submit']").click()
 
 
-zip_color = driver.find_element(By.CSS_SELECTOR, "#zip-code").value_of_css_property("background-color")
-assert zip_color == "rgba(248, 215, 218, 1)"
+zip_color = driver.find_element(By.CSS_SELECTOR, "#zip-code")
+assert_color = zip_color.value_of_css_property("background-color")
+assert assert_color == "rgba(248, 215, 218, 1)"
 
 
 def check_green_field():
