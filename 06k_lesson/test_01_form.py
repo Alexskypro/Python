@@ -36,3 +36,5 @@ def check_green_field():
 
 
 check_green_field()
+
+driver.quit()
