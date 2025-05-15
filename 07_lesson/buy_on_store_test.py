@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
-from pages.StorePage import BuyOnStorePage
+from pages.BuyOnStorePage import BuyOnStorePage
 
 
 def test_buy_on_store():
@@ -14,9 +14,9 @@ def test_buy_on_store():
     buy.add_to_cart()
     buy.shopping_cart()
     buy.checkout()
-    buy.input_first_name('Ilia')
-    buy.input_last_name('Klimov')
-    buy.input_postal_code('2403CW')
+    buy.input_first_name('Alex')
+    buy.input_last_name('Magomedov ')
+    buy.input_postal_code('299040')
     buy.button_continue()
     total = buy.summary_total()
 

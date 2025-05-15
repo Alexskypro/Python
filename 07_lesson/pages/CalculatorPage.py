@@ -15,19 +15,14 @@ class CalculatorPage():
         delay.send_keys(term)
 
     def click(self):
-        sev = self._driver.find_element(By.XPATH, "//*[contains(text(),'7')]")
-        sev.click()
-        plus = self._driver.find_element(By.XPATH, "//*[contains(text(),'+')]")
-        plus.click()
-        eig = self._driver.find_element(By.XPATH, "//*[contains(text(),'8')]")
-        eig.click()
-        res = self._driver.find_element(By.XPATH, "//*[contains(text(),'=')]")
-        res.click()
+        self._driver.find_element(By.XPATH, "//*[contains(text(),'7')]").click()
+        self._driver.find_element(By.XPATH, "//*[contains(text(),'+')]").click()
+        self._driver.find_element(By.XPATH, "//*[contains(text(),'8')]").click()
+        self._driver.find_element(By.XPATH, "//*[contains(text(),'=')]").click()
 
     def screen(self):
         screen = self._driver.find_element(By.CSS_SELECTOR, 'div.screen')
         WebDriverWait(self._driver, 50).until(
-            EC.text_to_be_present_in_element(
-                (By.CSS_SELECTOR, "div.screen"), "15")
+            EC.text_to_be_present_in_element((By.CSS_SELECTOR, "div.screen"), "15")
         )
         return screen.text
